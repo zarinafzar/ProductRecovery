@@ -5,29 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Contexts;
 using Data.Interfaces;
+using Data.Models;
 
 namespace Data.Repositories
 {
     public class UnitsRepo: IUnits
     {
-        private readonly prDbEntities _ctx;
+        private readonly Context _ctx;
 
-        public UnitsRepo(prDbEntities ctx)
+        public UnitsRepo(Context ctx)
         {
             _ctx = ctx;
         }
-        public IEnumerable<Unit> GetAll()
+        public IEnumerable<Units> GetAll()
         {
             return _ctx.Units.ToList();
         }
 
-        public void Add(Unit model)
+        public void Add(Units model)
         {
             _ctx.Units.Add(model);
             Save();
         }
 
-        public void Edit(Unit model)
+        public void Edit(Units model)
         {
             var tbl = _ctx.Units.Find(model.Id);
             if (tbl != null) _ctx.Units.Attach(tbl);
