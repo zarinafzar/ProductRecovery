@@ -13,7 +13,7 @@ namespace Data.Interfaces
         void Add(Unit model);
         void Edit(Unit model);
         void Delete(int id);
-        void Trash(int id);
+        void Trash(int id,bool status);
         bool IsExist(string name);
         void Save();
 

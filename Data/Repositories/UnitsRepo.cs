@@ -23,12 +23,15 @@ namespace Data.Repositories
 
         public void Add(Unit model)
         {
-            throw new NotImplementedException();
+            _ctx.Units.Add(model);
+            Save();
         }
 
         public void Edit(Unit model)
         {
-            throw new NotImplementedException();
+            var tbl = _ctx.Units.Find(model.Id);
+            if (tbl != null) _ctx.Units.Attach(tbl);
+            Save();
         }
 
         public void Delete(int id)
@@ -36,9 +39,11 @@ namespace Data.Repositories
             throw new NotImplementedException();
         }
 
-        public void Trash(int id)
+        public void Trash(int id, bool status)
         {
-            throw new NotImplementedException();
+            var tbl = _ctx.Units.Find(id);
+            if (tbl != null) _ctx.Units.Attach(tbl);
+            Save();
         }
 
         public bool IsExist(string name)
