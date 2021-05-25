@@ -8,18 +8,22 @@ using System.Threading.Tasks;
 
 namespace Data.Models
 {
-    public class Units
+    public class Categories
     {
-        [Key]
+        [Key] 
         public int Id { get; set; }
 
         [StringLength(50)]
-        public string UnitName { get; set; }
+        public string CatName { get; set; }
 
         public string Remark { get; set; }
         public bool IsDelete { get; set; }
 
-        //کالکشن کلید خارجی در کتگوری
-        public ICollection<Categories> Categories { get; set; }
+
+        //کلید خارجی با یونیت
+        public int UnitId { get; set; }
+        [ForeignKey(nameof(UnitId))] 
+        public virtual Units Units { get; set; }
+
     }
 }

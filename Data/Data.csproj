@@ -67,7 +67,16 @@
   <ItemGroup>
     <Compile Include="Contexts\Context.cs" />
     <Compile Include="Interfaces\IUnits.cs" />
+    <Compile Include="Migrations\202105251622542_initunit.cs" />
+    <Compile Include="Migrations\202105251622542_initunit.Designer.cs">
+      <DependentUpon>202105251622542_initunit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105251629273_initCategories.cs" />
+    <Compile Include="Migrations\202105251629273_initCategories.Designer.cs">
+      <DependentUpon>202105251629273_initCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Units.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UnitsRepo.cs" />
@@ -87,7 +96,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105251622542_initunit.resx">
+      <DependentUpon>202105251622542_initunit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105251629273_initCategories.resx">
+      <DependentUpon>202105251629273_initCategories.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
