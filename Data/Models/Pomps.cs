@@ -25,5 +25,7 @@ namespace Data.Models
         public int CatId { get; set; }
         [ForeignKey(nameof(CatId))] 
         public virtual Categories Categories { get; set; }
+
+        public ICollection<PompsEvents> PompsEvents { get; set; }
     }
 }

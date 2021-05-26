@@ -13,6 +13,8 @@ namespace Data.Contexts
         }
         public virtual DbSet<Units> Units { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<Pomps> Pomps { get; set; }
+        public virtual DbSet<PompsEvents> PompsEvents { get; set; }
         
     }
    
