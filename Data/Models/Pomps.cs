@@ -19,6 +19,7 @@ namespace Data.Models
         [StringLength(50)]
         public string  PompType { get; set; }
         public string Remark { get; set; }
+        public int InWorkDuration { get; set; }
         public bool IsDelete { get; set; }
 
         public int CatId { get; set; }
