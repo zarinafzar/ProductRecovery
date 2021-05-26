@@ -15,6 +15,7 @@ namespace Data.Contexts
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Pomps> Pomps { get; set; }
         public virtual DbSet<PompsEvents> PompsEvents { get; set; }
+        public virtual DbSet<RuntimeTasks> RuntimeTasks { get; set; }
         
     }
    

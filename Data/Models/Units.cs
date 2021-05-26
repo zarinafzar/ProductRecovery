@@ -21,5 +21,6 @@ namespace Data.Models
 
         //کالکشن کلید خارجی در کتگوری
         public ICollection<Categories> Categories { get; set; }
+        public ICollection<RuntimeTasks> RuntimeTasks { get; set; }
     }
 }

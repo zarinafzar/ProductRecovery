@@ -87,10 +87,15 @@
     <Compile Include="Migrations\202105261222158_pompeventsinit.Designer.cs">
       <DependentUpon>202105261222158_pompeventsinit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105261236341_initTasks.cs" />
+    <Compile Include="Migrations\202105261236341_initTasks.Designer.cs">
+      <DependentUpon>202105261236341_initTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Pomps.cs" />
     <Compile Include="Models\PompsEvents.cs" />
+    <Compile Include="Models\RuntimeTasks.cs" />
     <Compile Include="Models\Units.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UnitsRepo.cs" />
@@ -125,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105261222158_pompeventsinit.resx">
       <DependentUpon>202105261222158_pompeventsinit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261236341_initTasks.resx">
+      <DependentUpon>202105261236341_initTasks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
