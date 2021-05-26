@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Data.Repositories
         }
         public IEnumerable<Units> GetAll()
         {
-            return _ctx.Units.ToList();
+            return _ctx.Units.Where(c=>!c.IsDelete).ToList();
         }
 
         public void Add(Units model)
@@ -37,7 +38,9 @@ namespace Data.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var tbl = _ctx.Units.Find(id);
+            _ctx.Entry(tbl).State = EntityState.Deleted;
+            Save();
         }
 
         public void Trash(int id, bool status)
@@ -49,14 +52,13 @@ namespace Data.Repositories
 
         public bool IsExist(string name)
         {
-            throw new NotImplementedException();
+            return _ctx.Units.Any(c => c.UnitName == name);
         }
 
         public void Save()
         {
             _ctx.SaveChanges();
         }
-
         public void Dispose()
         {
             _ctx?.Dispose();
