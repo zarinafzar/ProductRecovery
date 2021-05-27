@@ -50,6 +50,9 @@ namespace ProduceRecovery
             this.identity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.unitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.count = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
@@ -72,8 +75,10 @@ namespace ProduceRecovery
             this.deleteBtn,
             this.refreshBtn,
             this.xlsBtn,
-            this.printBtn});
-            this.barManager1.MaxItemId = 7;
+            this.printBtn,
+            this.barStaticItem1,
+            this.count});
+            this.barManager1.MaxItemId = 9;
             this.barManager1.RightToLeft = DevExpress.Utils.DefaultBoolean.True;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -168,6 +173,9 @@ namespace ProduceRecovery
             this.bar3.DockCol = 0;
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.count)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
@@ -186,10 +194,10 @@ namespace ProduceRecovery
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 432);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 413);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.barDockControlBottom.Size = new System.Drawing.Size(737, 17);
+            this.barDockControlBottom.Size = new System.Drawing.Size(737, 36);
             // 
             // barDockControlLeft
             // 
@@ -198,7 +206,7 @@ namespace ProduceRecovery
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 401);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 382);
             // 
             // barDockControlRight
             // 
@@ -207,7 +215,7 @@ namespace ProduceRecovery
             this.barDockControlRight.Location = new System.Drawing.Point(737, 31);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 401);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 382);
             // 
             // gc
             // 
@@ -217,7 +225,7 @@ namespace ProduceRecovery
             this.gc.MenuManager = this.barManager1;
             this.gc.Name = "gc";
             this.gc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gc.Size = new System.Drawing.Size(737, 401);
+            this.gc.Size = new System.Drawing.Size(737, 382);
             this.gc.TabIndex = 4;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -266,6 +274,22 @@ namespace ProduceRecovery
             this.gridColumn3.VisibleIndex = 1;
             this.gridColumn3.Width = 462;
             // 
+            // xtraSaveFileDialog1
+            // 
+            this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "تعداد:";
+            this.barStaticItem1.Id = 7;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // count
+            // 
+            this.count.Caption = "0";
+            this.count.Id = 8;
+            this.count.Name = "count";
+            // 
             // UnitList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -310,5 +334,8 @@ namespace ProduceRecovery
         private DevExpress.XtraGrid.Columns.GridColumn identity;
         private DevExpress.XtraGrid.Columns.GridColumn unitName;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.XtraSaveFileDialog xtraSaveFileDialog1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem count;
     }
 }

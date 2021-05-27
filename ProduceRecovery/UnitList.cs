@@ -13,6 +13,7 @@ using Data.Interfaces;
 using Data.Models;
 using Data.Repositories;
 using DevExpress.XtraEditors;
+using ProduceRecovery.Models;
 
 namespace ProduceRecovery
 {
@@ -48,8 +49,10 @@ namespace ProduceRecovery
         {
             using (_db = new UnitOfWork())
             {
-                gc.DataSource = _db.UnitsRepo.Get();
+                gc.DataSource = _db.UnitsRepo.Get().Where(c=>!c.IsDelete);
             }
+
+            count.Caption = gv.RowCount.ToString();
         }
 
         private void gv_Click(object sender, EventArgs e)
@@ -148,12 +151,13 @@ namespace ProduceRecovery
 
         private void xlsBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            xtraSaveFileDialog1.Filter = "Excel Old (*.xls)|*.xls|Excel New (*.xlsx)|*.xlsx";
+            ExportToFiles.ExportToFile("excel", xtraSaveFileDialog1, gv);
         }
 
         private void printBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            gv.PrintDialog();
         }
     }
 }
