@@ -259,7 +259,7 @@ namespace ProduceRecovery
             // gridColumn3
             // 
             this.gridColumn3.Caption = "توضیحات";
-            this.gridColumn3.FieldName = "remark";
+            this.gridColumn3.FieldName = "Remark";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;

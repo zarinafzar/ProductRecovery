@@ -33,8 +33,7 @@ namespace ProduceRecovery
             try
             {
                 id = Convert.ToInt32(gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["Id"]));
-                celTXT = "نام: " +
-                         gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["UnitName"]);
+                celTXT = gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["UnitName"]);
             }
             catch
             {
@@ -66,12 +65,21 @@ namespace ProduceRecovery
 
         private void addNewBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            var frm = new AddUnit();
+            frm.ShowDialog();
         }
 
         private void editBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
+            SelectGrid();
+            if (id == 0)
+            {
+                XtraMessageBox.Show("ردیفی انتخاب نشده است!", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            var frm = new AddUnit {Id = id};
+            frm.ShowDialog();
         }
 
         private void trashBtn_ItemClick(object sender, ItemClickEventArgs e)
