@@ -33,14 +33,14 @@ namespace ProduceRecovery
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.unitListBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.categoriesBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.pompsBtn = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.addEventsOnPompBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.outOfPompBtn = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
@@ -60,6 +60,7 @@ namespace ProduceRecovery
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.underMaintenancePompBtn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             this.SuspendLayout();
@@ -76,19 +77,19 @@ namespace ProduceRecovery
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barSubItem1,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
+            this.unitListBtn,
+            this.categoriesBtn,
+            this.pompsBtn,
             this.barSubItem2,
             this.barButtonItem4,
             this.barButtonItem5,
-            this.barButtonItem6,
+            this.addEventsOnPompBtn,
             this.barSubItem3,
             this.barButtonItem7,
             this.barButtonItem8,
             this.barButtonItem9,
             this.barButtonItem10,
-            this.barButtonItem11,
+            this.outOfPompBtn,
             this.barButtonItem12,
             this.barButtonItem13,
             this.barStaticItem1,
@@ -96,8 +97,9 @@ namespace ProduceRecovery
             this.barSubItem4,
             this.barButtonItem14,
             this.barButtonItem15,
-            this.barButtonItem16});
-            this.barManager1.MaxItemId = 23;
+            this.barButtonItem16,
+            this.underMaintenancePompBtn});
+            this.barManager1.MaxItemId = 24;
             this.barManager1.RightToLeft = DevExpress.Utils.DefaultBoolean.True;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -123,38 +125,38 @@ namespace ProduceRecovery
             this.barSubItem1.Caption = "اطلاعات پایه";
             this.barSubItem1.Id = 0;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.unitListBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.categoriesBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.pompsBtn)});
             this.barSubItem1.Name = "barSubItem1";
             // 
-            // barButtonItem1
+            // unitListBtn
             // 
-            this.barButtonItem1.Caption = "واحدهای کارگاه";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.unitListBtn.Caption = "واحدهای کارگاه";
+            this.unitListBtn.Id = 1;
+            this.unitListBtn.Name = "unitListBtn";
+            this.unitListBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.unitListBtn_ItemClick);
             // 
-            // barButtonItem2
+            // categoriesBtn
             // 
-            this.barButtonItem2.Caption = "نواحی بخش";
-            this.barButtonItem2.Id = 2;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.categoriesBtn.Caption = "نواحی بخش";
+            this.categoriesBtn.Id = 2;
+            this.categoriesBtn.Name = "categoriesBtn";
             // 
-            // barButtonItem3
+            // pompsBtn
             // 
-            this.barButtonItem3.Caption = "پمپهای بخش";
-            this.barButtonItem3.Id = 3;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.pompsBtn.Caption = "پمپهای بخش";
+            this.pompsBtn.Id = 3;
+            this.pompsBtn.Name = "pompsBtn";
             // 
             // barSubItem2
             // 
             this.barSubItem2.Caption = "عملیات";
             this.barSubItem2.Id = 4;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.addEventsOnPompBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.outOfPompBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.underMaintenancePompBtn)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // barButtonItem4
@@ -169,17 +171,17 @@ namespace ProduceRecovery
             this.barButtonItem5.Id = 6;
             this.barButtonItem5.Name = "barButtonItem5";
             // 
-            // barButtonItem6
+            // addEventsOnPompBtn
             // 
-            this.barButtonItem6.Caption = "ثبت رویداد پمپ";
-            this.barButtonItem6.Id = 7;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.addEventsOnPompBtn.Caption = "ثبت رویداد پمپ";
+            this.addEventsOnPompBtn.Id = 7;
+            this.addEventsOnPompBtn.Name = "addEventsOnPompBtn";
             // 
-            // barButtonItem11
+            // outOfPompBtn
             // 
-            this.barButtonItem11.Caption = "خارج از مدار کردن پمپ";
-            this.barButtonItem11.Id = 14;
-            this.barButtonItem11.Name = "barButtonItem11";
+            this.outOfPompBtn.Caption = "خارج از مدار کردن پمپ";
+            this.outOfPompBtn.Id = 14;
+            this.outOfPompBtn.Name = "outOfPompBtn";
             // 
             // barSubItem3
             // 
@@ -326,6 +328,12 @@ namespace ProduceRecovery
             // 
             this.mvvmContext1.ContainerControl = this;
             // 
+            // underMaintenancePompBtn
+            // 
+            this.underMaintenancePompBtn.Caption = "تحت تعمیر پمپ";
+            this.underMaintenancePompBtn.Id = 23;
+            this.underMaintenancePompBtn.Name = "underMaintenancePompBtn";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -340,6 +348,7 @@ namespace ProduceRecovery
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
             this.ResumeLayout(false);
@@ -358,14 +367,14 @@ namespace ProduceRecovery
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem unitListBtn;
+        private DevExpress.XtraBars.BarButtonItem categoriesBtn;
+        private DevExpress.XtraBars.BarButtonItem pompsBtn;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem addEventsOnPompBtn;
+        private DevExpress.XtraBars.BarButtonItem outOfPompBtn;
         private DevExpress.XtraBars.BarSubItem barSubItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
@@ -379,6 +388,7 @@ namespace ProduceRecovery
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
         private DevExpress.XtraBars.BarButtonItem barButtonItem15;
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
+        private DevExpress.XtraBars.BarButtonItem underMaintenancePompBtn;
     }
 }
 

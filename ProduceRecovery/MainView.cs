@@ -15,5 +15,16 @@ namespace ProduceRecovery
         {
             InitializeComponent();
         }
+
+        private void MainView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void unitListBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var frm = new UnitList();
+            frm.ShowDialog();
+        }
     }
 }

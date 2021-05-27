@@ -20,7 +20,7 @@ namespace Data.Repositories
         }
         public IEnumerable<Units> GetAll()
         {
-            return _ctx.Units.Where(c=>!c.IsDelete).ToList();
+            return _ctx.Units.Where(c => !c.IsDelete).ToList();
         }
 
         public void Add(Units model)

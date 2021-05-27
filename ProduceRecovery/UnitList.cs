@@ -8,17 +8,142 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data.Contexts;
+using Data.Interfaces;
+using Data.Models;
+using Data.Repositories;
+using DevExpress.XtraEditors;
 
 namespace ProduceRecovery
 {
     public partial class UnitList : DevExpress.XtraEditors.XtraForm
     {
+        private UnitOfWork _db;
+        public static UnitList form;
+        int id;
+        string celTXT;
         public UnitList()
         {
             InitializeComponent();
+            form = this;
+        }
+        private void SelectGrid()
+        {
+            id = 0;
+            try
+            {
+                id = Convert.ToInt32(gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["Id"]));
+                celTXT = "نام: " +
+                         gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["UnitName"]);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+        private void UnitList_Load(object sender, EventArgs e)
+        {
+            GetList();
+        }
+        public void GetList()
+        {
+            using (_db = new UnitOfWork())
+            {
+                gc.DataSource = _db.UnitsRepo.Get();
+            }
         }
 
-        private void UnitList_Load(object sender, EventArgs e)
+        private void gv_Click(object sender, EventArgs e)
+        {
+            SelectGrid();
+        }
+
+        private void gv_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (Convert.ToInt32(e.RowHandle.ToString()) + 1).ToString();
+        }
+
+        private void addNewBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void editBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void trashBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SelectGrid();
+            if (id == 0)
+            {
+                XtraMessageBox.Show("ردیفی انتخاب نشده است!", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var respons = DialogResult.None;
+            respons = XtraMessageBox.Show(celTXT + " را حذف می کنید؟", "تأیید می کنید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+            if (respons == DialogResult.Yes)
+            {
+                using (_db = new UnitOfWork())
+                {
+                    var tbl = _db.UnitsRepo.GetById(this.id);
+                    tbl.IsDelete = true;
+                    _db.UnitsRepo.Update(tbl);
+                    _db.Save();
+                    _db.Dispose();
+                }
+                this.id = 0;
+                GetList();
+            }
+            else if (respons == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void deleteBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SelectGrid();
+            if (id == 0)
+            {
+                XtraMessageBox.Show("ردیفی انتخاب نشده است!", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var respons = DialogResult.None;
+            respons = XtraMessageBox.Show(celTXT+ " را حذف می کنید؟", "تأیید می کنید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+            if (respons == DialogResult.Yes)
+            {
+                using (_db = new UnitOfWork())
+                {
+                    var q = _db.UnitsRepo.GetById(this.id);
+                    _db.UnitsRepo.Delete(q);
+                    _db.Save();
+                    _db.Dispose();
+                }
+                this.id = 0;
+                GetList();
+            }
+            else if (respons == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void refreshBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GetList();
+        }
+
+        private void xlsBtn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void printBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
 
         }

@@ -33,11 +33,6 @@ namespace ProduceRecovery
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitList));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.addNewBtn = new DevExpress.XtraBars.BarButtonItem();
             this.editBtn = new DevExpress.XtraBars.BarButtonItem();
             this.trashBtn = new DevExpress.XtraBars.BarButtonItem();
@@ -45,8 +40,16 @@ namespace ProduceRecovery
             this.refreshBtn = new DevExpress.XtraBars.BarButtonItem();
             this.xlsBtn = new DevExpress.XtraBars.BarButtonItem();
             this.printBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.identity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.unitName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
@@ -78,7 +81,7 @@ namespace ProduceRecovery
             // 
             this.bar1.BarName = "Tools";
             this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
+            this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.addNewBtn, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -92,6 +95,71 @@ namespace ProduceRecovery
             this.bar1.OptionsBar.DrawDragBorder = false;
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
+            // 
+            // addNewBtn
+            // 
+            this.addNewBtn.Caption = "جدید";
+            this.addNewBtn.Id = 0;
+            this.addNewBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("addNewBtn.ImageOptions.Image")));
+            this.addNewBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("addNewBtn.ImageOptions.LargeImage")));
+            this.addNewBtn.Name = "addNewBtn";
+            this.addNewBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addNewBtn_ItemClick);
+            // 
+            // editBtn
+            // 
+            this.editBtn.Caption = "ویرایش";
+            this.editBtn.Id = 1;
+            this.editBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.ImageOptions.Image")));
+            this.editBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("editBtn.ImageOptions.LargeImage")));
+            this.editBtn.Name = "editBtn";
+            this.editBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.editBtn_ItemClick);
+            // 
+            // trashBtn
+            // 
+            this.trashBtn.Caption = "زباله دان";
+            this.trashBtn.Id = 2;
+            this.trashBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("trashBtn.ImageOptions.Image")));
+            this.trashBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("trashBtn.ImageOptions.LargeImage")));
+            this.trashBtn.Name = "trashBtn";
+            this.trashBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.trashBtn_ItemClick);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Caption = "حذف";
+            this.deleteBtn.Id = 3;
+            this.deleteBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.ImageOptions.Image")));
+            this.deleteBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("deleteBtn.ImageOptions.LargeImage")));
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.deleteBtn_ItemClick);
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Caption = "نوسازی جدول";
+            this.refreshBtn.Id = 4;
+            this.refreshBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("refreshBtn.ImageOptions.Image")));
+            this.refreshBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("refreshBtn.ImageOptions.LargeImage")));
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.refreshBtn_ItemClick);
+            // 
+            // xlsBtn
+            // 
+            this.xlsBtn.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.xlsBtn.Caption = "اکسل";
+            this.xlsBtn.Id = 5;
+            this.xlsBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xlsBtn.ImageOptions.Image")));
+            this.xlsBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("xlsBtn.ImageOptions.LargeImage")));
+            this.xlsBtn.Name = "xlsBtn";
+            this.xlsBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.xlsBtn_ItemClick);
+            // 
+            // printBtn
+            // 
+            this.printBtn.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.printBtn.Caption = "چاپ";
+            this.printBtn.Id = 6;
+            this.printBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("printBtn.ImageOptions.Image")));
+            this.printBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("printBtn.ImageOptions.LargeImage")));
+            this.printBtn.Name = "printBtn";
+            this.printBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.printBtn_ItemClick);
             // 
             // bar3
             // 
@@ -141,64 +209,6 @@ namespace ProduceRecovery
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 401);
             // 
-            // addNewBtn
-            // 
-            this.addNewBtn.Caption = "جدید";
-            this.addNewBtn.Id = 0;
-            this.addNewBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("addNewBtn.ImageOptions.Image")));
-            this.addNewBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("addNewBtn.ImageOptions.LargeImage")));
-            this.addNewBtn.Name = "addNewBtn";
-            // 
-            // editBtn
-            // 
-            this.editBtn.Caption = "ویرایش";
-            this.editBtn.Id = 1;
-            this.editBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.ImageOptions.Image")));
-            this.editBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("editBtn.ImageOptions.LargeImage")));
-            this.editBtn.Name = "editBtn";
-            // 
-            // trashBtn
-            // 
-            this.trashBtn.Caption = "زباله دان";
-            this.trashBtn.Id = 2;
-            this.trashBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("trashBtn.ImageOptions.Image")));
-            this.trashBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("trashBtn.ImageOptions.LargeImage")));
-            this.trashBtn.Name = "trashBtn";
-            // 
-            // deleteBtn
-            // 
-            this.deleteBtn.Caption = "حذف";
-            this.deleteBtn.Id = 3;
-            this.deleteBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.ImageOptions.Image")));
-            this.deleteBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("deleteBtn.ImageOptions.LargeImage")));
-            this.deleteBtn.Name = "deleteBtn";
-            // 
-            // refreshBtn
-            // 
-            this.refreshBtn.Caption = "نوسازی جدول";
-            this.refreshBtn.Id = 4;
-            this.refreshBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("refreshBtn.ImageOptions.Image")));
-            this.refreshBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("refreshBtn.ImageOptions.LargeImage")));
-            this.refreshBtn.Name = "refreshBtn";
-            // 
-            // xlsBtn
-            // 
-            this.xlsBtn.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.xlsBtn.Caption = "اکسل";
-            this.xlsBtn.Id = 5;
-            this.xlsBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xlsBtn.ImageOptions.Image")));
-            this.xlsBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("xlsBtn.ImageOptions.LargeImage")));
-            this.xlsBtn.Name = "xlsBtn";
-            // 
-            // printBtn
-            // 
-            this.printBtn.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.printBtn.Caption = "چاپ";
-            this.printBtn.Id = 6;
-            this.printBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("printBtn.ImageOptions.Image")));
-            this.printBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("printBtn.ImageOptions.LargeImage")));
-            this.printBtn.Name = "printBtn";
-            // 
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -214,9 +224,47 @@ namespace ProduceRecovery
             // 
             // gv
             // 
+            this.gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.identity,
+            this.unitName,
+            this.gridColumn3});
             this.gv.GridControl = this.gc;
+            this.gv.IndicatorWidth = 40;
             this.gv.Name = "gv";
             this.gv.OptionsView.ShowGroupPanel = false;
+            this.gv.OptionsView.ShowViewCaption = true;
+            this.gv.ViewCaption = "لیست واحدهای کارگاه";
+            this.gv.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gv_CustomDrawRowIndicator);
+            this.gv.Click += new System.EventHandler(this.gv_Click);
+            // 
+            // identity
+            // 
+            this.identity.Caption = "Id";
+            this.identity.FieldName = "Id";
+            this.identity.Name = "identity";
+            // 
+            // unitName
+            // 
+            this.unitName.Caption = "نام واحد";
+            this.unitName.FieldName = "UnitName";
+            this.unitName.MaxWidth = 250;
+            this.unitName.Name = "unitName";
+            this.unitName.OptionsColumn.AllowEdit = false;
+            this.unitName.OptionsColumn.AllowSize = false;
+            this.unitName.OptionsColumn.FixedWidth = true;
+            this.unitName.Visible = true;
+            this.unitName.VisibleIndex = 0;
+            this.unitName.Width = 250;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "توضیحات";
+            this.gridColumn3.FieldName = "remark";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 462;
             // 
             // UnitList
             // 
@@ -259,5 +307,8 @@ namespace ProduceRecovery
         private DevExpress.XtraBars.BarButtonItem printBtn;
         private DevExpress.XtraGrid.GridControl gc;
         private DevExpress.XtraGrid.Views.Grid.GridView gv;
+        private DevExpress.XtraGrid.Columns.GridColumn identity;
+        private DevExpress.XtraGrid.Columns.GridColumn unitName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }
