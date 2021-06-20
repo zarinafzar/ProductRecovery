@@ -15,13 +15,10 @@ namespace Data.Models
 
         [StringLength(50)]
         public string PompName { get; set; }
-
-        [StringLength(50)]
-        public string  PompType { get; set; }
+       
         public string Remark { get; set; }
         public int InWorkDuration { get; set; }
         public bool IsDelete { get; set; }
-        public bool OutOfReach { get; set; }
         public bool UnderMaintenance { get; set; }
 
         public int CatId { get; set; }

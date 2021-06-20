@@ -52,11 +52,11 @@ namespace ProduceRecovery
             this.identity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PompName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UnitNames = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Categories = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UnitId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Categories = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
             this.catId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
@@ -261,7 +261,7 @@ namespace ProduceRecovery
             this.gv.Name = "gv";
             this.gv.OptionsView.ShowGroupPanel = false;
             this.gv.OptionsView.ShowViewCaption = true;
-            this.gv.ViewCaption = "لیست ناحیه های کارگاه";
+            this.gv.ViewCaption = "لیست پمپها";
             this.gv.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gv_CustomDrawRowIndicator);
             this.gv.Click += new System.EventHandler(this.gv_Click);
             // 
@@ -294,6 +294,17 @@ namespace ProduceRecovery
             this.UnitNames.VisibleIndex = 1;
             this.UnitNames.Width = 150;
             // 
+            // Categories
+            // 
+            this.Categories.Caption = "نام ناحیه";
+            this.Categories.FieldName = "Categories.CatName";
+            this.Categories.Name = "Categories";
+            this.Categories.OptionsColumn.AllowEdit = false;
+            this.Categories.OptionsColumn.AllowSize = false;
+            this.Categories.Visible = true;
+            this.Categories.VisibleIndex = 2;
+            this.Categories.Width = 150;
+            // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "توضیحات";
@@ -310,26 +321,15 @@ namespace ProduceRecovery
             this.UnitId.FieldName = "Categories.Units.Id";
             this.UnitId.Name = "UnitId";
             // 
-            // Categories
-            // 
-            this.Categories.Caption = "نام ناحیه";
-            this.Categories.FieldName = "Categories.CatName";
-            this.Categories.Name = "Categories";
-            this.Categories.OptionsColumn.AllowEdit = false;
-            this.Categories.OptionsColumn.AllowSize = false;
-            this.Categories.Visible = true;
-            this.Categories.VisibleIndex = 2;
-            this.Categories.Width = 150;
-            // 
-            // xtraSaveFileDialog1
-            // 
-            this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
-            // 
             // catId
             // 
             this.catId.Caption = "catId";
             this.catId.FieldName = "Categories.Id";
             this.catId.Name = "catId";
+            // 
+            // xtraSaveFileDialog1
+            // 
+            this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
             // 
             // PompsList
             // 
@@ -344,7 +344,7 @@ namespace ProduceRecovery
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "PompsList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "لیست ناحیه های کارگاه";
+            this.Text = "لیست پمپها";
             this.Load += new System.EventHandler(this.UnitList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();

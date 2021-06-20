@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202105261236341_initTasks.Designer.cs">
       <DependentUpon>202105261236341_initTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106202103046_removePompType.cs" />
+    <Compile Include="Migrations\202106202103046_removePompType.Designer.cs">
+      <DependentUpon>202106202103046_removePompType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Pomps.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105261236341_initTasks.resx">
       <DependentUpon>202105261236341_initTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106202103046_removePompType.resx">
+      <DependentUpon>202106202103046_removePompType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

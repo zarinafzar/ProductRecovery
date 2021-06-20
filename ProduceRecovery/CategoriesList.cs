@@ -68,7 +68,7 @@ namespace ProduceRecovery
 
         private void addNewBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var frm = new AddUnit();
+            var frm = new AddCategory();
             frm.ShowDialog();
         }
 
@@ -81,7 +81,7 @@ namespace ProduceRecovery
                 return;
             }
 
-            var frm = new AddUnit {Id = id};
+            var frm = new AddCategory { Id = id};
             frm.ShowDialog();
         }
 
