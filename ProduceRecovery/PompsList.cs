@@ -17,13 +17,13 @@ using ProduceRecovery.Models;
 
 namespace ProduceRecovery
 {
-    public partial class CategoriesList : DevExpress.XtraEditors.XtraForm
+    public partial class PompsList : DevExpress.XtraEditors.XtraForm
     {
         private UnitOfWork _db;
-        public static CategoriesList form;
+        public static PompsList form;
         int id;
         string celTXT;
-        public CategoriesList()
+        public PompsList()
         {
             InitializeComponent();
             form = this;
@@ -34,7 +34,7 @@ namespace ProduceRecovery
             try
             {
                 id = Convert.ToInt32(gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["Id"]));
-                celTXT = gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["CatName"]);
+                celTXT = gv.GetRowCellDisplayText(gv.FocusedRowHandle, gv.Columns["PompName"]);
             }
             catch
             {
@@ -49,7 +49,7 @@ namespace ProduceRecovery
         {
             using (_db = new UnitOfWork())
             {
-                gc.DataSource = _db.CategoriesRepo.Include(c=>c.Units).Where(c=>!c.IsDelete);
+                gc.DataSource = _db.PompsRepo.Include(x => x.Categories)/*.Include(c=>c.Categories.Units)*/.Where(c=>!c.IsDelete);
             }
 
             count.Caption = gv.RowCount.ToString();
@@ -100,9 +100,9 @@ namespace ProduceRecovery
             {
                 using (_db = new UnitOfWork())
                 {
-                    var tbl = _db.CategoriesRepo.GetById(this.id);
+                    var tbl = _db.PompsRepo.GetById(this.id);
                     tbl.IsDelete = true;
-                    _db.CategoriesRepo.Update(tbl);
+                    _db.PompsRepo.Update(tbl);
                     _db.Save();
                     _db.Dispose();
                 }
@@ -130,8 +130,8 @@ namespace ProduceRecovery
             {
                 using (_db = new UnitOfWork())
                 {
-                    var q = _db.CategoriesRepo.GetById(this.id);
-                    _db.CategoriesRepo.Delete(q);
+                    var q = _db.PompsRepo.GetById(this.id);
+                    _db.PompsRepo.Delete(q);
                     _db.Save();
                     _db.Dispose();
                 }

@@ -37,10 +37,9 @@ namespace ProduceRecovery
             this.categoriesBtn = new DevExpress.XtraBars.BarButtonItem();
             this.pompsBtn = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.addEventsOnPompBtn = new DevExpress.XtraBars.BarButtonItem();
             this.outOfPompBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.underMaintenancePompBtn = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
@@ -59,8 +58,9 @@ namespace ProduceRecovery
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.underMaintenancePompBtn = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             this.SuspendLayout();
@@ -142,12 +142,14 @@ namespace ProduceRecovery
             this.categoriesBtn.Caption = "نواحی بخش";
             this.categoriesBtn.Id = 2;
             this.categoriesBtn.Name = "categoriesBtn";
+            this.categoriesBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.categoriesBtn_ItemClick);
             // 
             // pompsBtn
             // 
             this.pompsBtn.Caption = "پمپهای بخش";
             this.pompsBtn.Id = 3;
             this.pompsBtn.Name = "pompsBtn";
+            this.pompsBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.pompsBtn_ItemClick);
             // 
             // barSubItem2
             // 
@@ -158,18 +160,6 @@ namespace ProduceRecovery
             new DevExpress.XtraBars.LinkPersistInfo(this.outOfPompBtn),
             new DevExpress.XtraBars.LinkPersistInfo(this.underMaintenancePompBtn)});
             this.barSubItem2.Name = "barSubItem2";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "استارت پمپ";
-            this.barButtonItem4.Id = 5;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "رزرو پمپ";
-            this.barButtonItem5.Id = 6;
-            this.barButtonItem5.Name = "barButtonItem5";
             // 
             // addEventsOnPompBtn
             // 
@@ -182,6 +172,12 @@ namespace ProduceRecovery
             this.outOfPompBtn.Caption = "خارج از مدار کردن پمپ";
             this.outOfPompBtn.Id = 14;
             this.outOfPompBtn.Name = "outOfPompBtn";
+            // 
+            // underMaintenancePompBtn
+            // 
+            this.underMaintenancePompBtn.Caption = "تحت تعمیر پمپ";
+            this.underMaintenancePompBtn.Id = 23;
+            this.underMaintenancePompBtn.Name = "underMaintenancePompBtn";
             // 
             // barSubItem3
             // 
@@ -324,15 +320,21 @@ namespace ProduceRecovery
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 678);
             // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "استارت پمپ";
+            this.barButtonItem4.Id = 5;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "رزرو پمپ";
+            this.barButtonItem5.Id = 6;
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
             // mvvmContext1
             // 
             this.mvvmContext1.ContainerControl = this;
-            // 
-            // underMaintenancePompBtn
-            // 
-            this.underMaintenancePompBtn.Caption = "تحت تعمیر پمپ";
-            this.underMaintenancePompBtn.Id = 23;
-            this.underMaintenancePompBtn.Name = "underMaintenancePompBtn";
             // 
             // MainView
             // 

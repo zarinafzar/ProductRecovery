@@ -20,7 +20,7 @@ namespace Data.Repositories
             this._dbSet = _ctx.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> where = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderby = null, params Expression<Func<TEntity, Object>>[] includeExps)
+        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> where = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderby = null, params Expression<Func<TEntity, Object>>[] includes)
         {
             IQueryable<TEntity> query = _dbSet;
 
@@ -35,7 +35,18 @@ namespace Data.Repositories
 
             return query.ToList();
         }
+        public IEnumerable<TEntity> Include(params Expression<Func<TEntity, object>>[] includes)
+        {
+            IDbSet<TEntity> dbSet = _dbSet;
 
+            IEnumerable<TEntity> query = null;
+            foreach (var include in includes)
+            {
+                query = dbSet.Include(include);
+            }
+
+            return query ?? dbSet;
+        }
         public virtual TEntity GetById(object Id)
         {
             return _dbSet.Find(Id);

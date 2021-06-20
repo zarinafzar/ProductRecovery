@@ -26,5 +26,17 @@ namespace ProduceRecovery
             var frm = new UnitList();
             frm.ShowDialog();
         }
+
+        private void categoriesBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var frm = new CategoriesList();
+            frm.ShowDialog();
+        }
+
+        private void pompsBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var frm = new PompsList();
+            frm.ShowDialog();
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace ProduceRecovery
 {
-    partial class CategoriesList
+    partial class PompsList
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace ProduceRecovery
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PompsList));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.addNewBtn = new DevExpress.XtraBars.BarButtonItem();
@@ -50,11 +50,13 @@ namespace ProduceRecovery
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.identity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.unitName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PompName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UnitNames = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UnitId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Categories = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
+            this.catId = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
@@ -248,10 +250,12 @@ namespace ProduceRecovery
             // 
             this.gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.identity,
-            this.unitName,
+            this.PompName,
             this.UnitNames,
+            this.Categories,
             this.gridColumn3,
-            this.UnitId});
+            this.UnitId,
+            this.catId});
             this.gv.GridControl = this.gc;
             this.gv.IndicatorWidth = 40;
             this.gv.Name = "gv";
@@ -267,28 +271,28 @@ namespace ProduceRecovery
             this.identity.FieldName = "Id";
             this.identity.Name = "identity";
             // 
-            // unitName
+            // PompName
             // 
-            this.unitName.Caption = "نام ناحیه";
-            this.unitName.FieldName = "CatName";
-            this.unitName.Name = "unitName";
-            this.unitName.OptionsColumn.AllowEdit = false;
-            this.unitName.OptionsColumn.AllowSize = false;
-            this.unitName.OptionsColumn.FixedWidth = true;
-            this.unitName.Visible = true;
-            this.unitName.VisibleIndex = 0;
-            this.unitName.Width = 250;
+            this.PompName.Caption = "نام پمپ";
+            this.PompName.FieldName = "PompName";
+            this.PompName.Name = "PompName";
+            this.PompName.OptionsColumn.AllowEdit = false;
+            this.PompName.OptionsColumn.AllowSize = false;
+            this.PompName.OptionsColumn.FixedWidth = true;
+            this.PompName.Visible = true;
+            this.PompName.VisibleIndex = 0;
+            this.PompName.Width = 150;
             // 
             // UnitNames
             // 
             this.UnitNames.Caption = "نام بخش";
-            this.UnitNames.FieldName = "Units.UnitName";
+            this.UnitNames.FieldName = "Categories.Units.UnitName";
             this.UnitNames.Name = "UnitNames";
             this.UnitNames.OptionsColumn.AllowEdit = false;
             this.UnitNames.OptionsColumn.AllowSize = false;
             this.UnitNames.Visible = true;
             this.UnitNames.VisibleIndex = 1;
-            this.UnitNames.Width = 171;
+            this.UnitNames.Width = 150;
             // 
             // gridColumn3
             // 
@@ -297,20 +301,37 @@ namespace ProduceRecovery
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 3;
             this.gridColumn3.Width = 250;
             // 
             // UnitId
             // 
             this.UnitId.Caption = "UnitId";
-            this.UnitId.FieldName = "UnitId";
+            this.UnitId.FieldName = "Categories.Units.Id";
             this.UnitId.Name = "UnitId";
+            // 
+            // Categories
+            // 
+            this.Categories.Caption = "نام ناحیه";
+            this.Categories.FieldName = "Categories.CatName";
+            this.Categories.Name = "Categories";
+            this.Categories.OptionsColumn.AllowEdit = false;
+            this.Categories.OptionsColumn.AllowSize = false;
+            this.Categories.Visible = true;
+            this.Categories.VisibleIndex = 2;
+            this.Categories.Width = 150;
             // 
             // xtraSaveFileDialog1
             // 
             this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
             // 
-            // CategoriesList
+            // catId
+            // 
+            this.catId.Caption = "catId";
+            this.catId.FieldName = "Categories.Id";
+            this.catId.Name = "catId";
+            // 
+            // PompsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -321,7 +342,7 @@ namespace ProduceRecovery
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "CategoriesList";
+            this.Name = "PompsList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست ناحیه های کارگاه";
             this.Load += new System.EventHandler(this.UnitList_Load);
@@ -352,12 +373,14 @@ namespace ProduceRecovery
         private DevExpress.XtraGrid.GridControl gc;
         private DevExpress.XtraGrid.Views.Grid.GridView gv;
         private DevExpress.XtraGrid.Columns.GridColumn identity;
-        private DevExpress.XtraGrid.Columns.GridColumn unitName;
+        private DevExpress.XtraGrid.Columns.GridColumn PompName;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.XtraSaveFileDialog xtraSaveFileDialog1;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarStaticItem count;
         private DevExpress.XtraGrid.Columns.GridColumn UnitNames;
         private DevExpress.XtraGrid.Columns.GridColumn UnitId;
+        private DevExpress.XtraGrid.Columns.GridColumn Categories;
+        private DevExpress.XtraGrid.Columns.GridColumn catId;
     }
 }
