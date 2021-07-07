@@ -57,9 +57,12 @@ namespace ProduceRecovery
             this.UnitId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.catId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -236,12 +239,12 @@ namespace ProduceRecovery
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc.Location = new System.Drawing.Point(0, 31);
+            this.gc.Location = new System.Drawing.Point(0, 71);
             this.gc.MainView = this.gv;
             this.gc.MenuManager = this.barManager1;
             this.gc.Name = "gc";
             this.gc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gc.Size = new System.Drawing.Size(813, 382);
+            this.gc.Size = new System.Drawing.Size(813, 342);
             this.gc.TabIndex = 4;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -251,6 +254,7 @@ namespace ProduceRecovery
             this.gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.identity,
             this.PompName,
+            this.gridColumn1,
             this.UnitNames,
             this.Categories,
             this.gridColumn3,
@@ -291,8 +295,8 @@ namespace ProduceRecovery
             this.UnitNames.OptionsColumn.AllowEdit = false;
             this.UnitNames.OptionsColumn.AllowSize = false;
             this.UnitNames.Visible = true;
-            this.UnitNames.VisibleIndex = 1;
-            this.UnitNames.Width = 150;
+            this.UnitNames.VisibleIndex = 2;
+            this.UnitNames.Width = 140;
             // 
             // Categories
             // 
@@ -302,8 +306,8 @@ namespace ProduceRecovery
             this.Categories.OptionsColumn.AllowEdit = false;
             this.Categories.OptionsColumn.AllowSize = false;
             this.Categories.Visible = true;
-            this.Categories.VisibleIndex = 2;
-            this.Categories.Width = 150;
+            this.Categories.VisibleIndex = 3;
+            this.Categories.Width = 140;
             // 
             // gridColumn3
             // 
@@ -312,8 +316,8 @@ namespace ProduceRecovery
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 250;
+            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.Width = 239;
             // 
             // UnitId
             // 
@@ -331,12 +335,40 @@ namespace ProduceRecovery
             // 
             this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "دوره فعالیت";
+            this.gridColumn1.FieldName = "InWorkDuration";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.AllowFocus = false;
+            this.gridColumn1.OptionsColumn.AllowSize = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 100;
+            // 
+            // searchControl1
+            // 
+            this.searchControl1.Client = this.gc;
+            this.searchControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchControl1.Location = new System.Drawing.Point(0, 31);
+            this.searchControl1.MenuManager = this.barManager1;
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.searchControl1.Properties.Client = this.gc;
+            this.searchControl1.Properties.NullValuePrompt = "عبارتی را جهت جستجو وارد کنید";
+            this.searchControl1.Size = new System.Drawing.Size(813, 40);
+            this.searchControl1.TabIndex = 9;
+            // 
             // PompsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 449);
             this.Controls.Add(this.gc);
+            this.Controls.Add(this.searchControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -349,6 +381,7 @@ namespace ProduceRecovery
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,5 +415,7 @@ namespace ProduceRecovery
         private DevExpress.XtraGrid.Columns.GridColumn UnitId;
         private DevExpress.XtraGrid.Columns.GridColumn Categories;
         private DevExpress.XtraGrid.Columns.GridColumn catId;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.SearchControl searchControl1;
     }
 }

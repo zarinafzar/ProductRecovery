@@ -21,26 +21,60 @@ namespace ProduceRecovery
         {
             InitializeComponent();
         }
-
+        private void GetUnits()
+        {
+            using (_db = new UnitOfWork())
+            {
+                unitSelect.Properties.DataSource = _db.UnitsRepo.Get(c => !c.IsDelete);
+                unitSelect.Properties.DisplayMember = "UnitName";
+                unitSelect.Properties.ValueMember = "Id";
+            }
+        }
+        private void GetCategories(int unitId)
+        {
+            using (_db = new UnitOfWork())
+            {
+                categorySelect.Properties.DataSource = _db.CategoriesRepo.Get(c => !c.IsDelete && c.UnitId== unitId);
+                categorySelect.Properties.DisplayMember = "CatName";
+                categorySelect.Properties.ValueMember = "Id";
+            }
+        }
         private void AddUnit_Load(object sender, EventArgs e)
         {
+            GetUnits();
             if (this.Id != 0)
             {
                 using (_db = new UnitOfWork())
                 {
-                    var q = _db.UnitsRepo.GetById(this.Id);
-                    unitName.Text = q.UnitName;
+                    var q = _db.PompsRepo.GetById(this.Id);
+                    unitSelect.EditValue = q.Categories.UnitId;
+                    categorySelect.EditValue = q.CatId;
+                    PompName.Text = q.PompName;
+                    InWorkDuration.Text = q.InWorkDuration.ToString();
                     remark.Text = q.Remark;
                     _db.Dispose();
                 }
             }
+            
         }
 
         private void save_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (string.IsNullOrEmpty(unitName.Text))
+            if (string.IsNullOrEmpty(categorySelect.Text))
             {
-                dxErrorProvider1.SetError(unitName, "این فیلد نباید خالی باشد");
+                dxErrorProvider1.SetError(categorySelect, "این فیلد نباید خالی باشد");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(PompName.Text))
+            {
+                dxErrorProvider1.SetError(PompName, "این فیلد نباید خالی باشد");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(InWorkDuration.Text))
+            {
+                dxErrorProvider1.SetError(InWorkDuration, "این فیلد نباید خالی باشد");
                 return;
             }
 
@@ -48,20 +82,22 @@ namespace ProduceRecovery
             {
                 using (_db = new UnitOfWork())
                 {
-                    var tbl = new Units()
+                    var tbl = new Pomps()
                     {
-                        UnitName = unitName.Text,
+                        CatId = (int) categorySelect.EditValue,
+                        PompName = PompName.Text,
+                        InWorkDuration = Convert.ToInt32(InWorkDuration.Text),
                         Remark = remark.Text
                     };
                     if (Id == 0)
                     {
-                        _db.UnitsRepo.Insert(tbl);
-                        unitName.Focus();
+                        _db.PompsRepo.Insert(tbl);
+                        PompName.Focus();
                     }
                     else
                     {
                         tbl.Id = this.Id;
-                        _db.UnitsRepo.Update(tbl);
+                        _db.PompsRepo.Update(tbl);
                     }
                     _db.Save();
                     _db.Dispose();
@@ -73,7 +109,7 @@ namespace ProduceRecovery
             }
             try
             {
-                UnitList.form.GetList();
+                PompsList.form.GetList();
             }
             catch (Exception exception)
             {
@@ -85,6 +121,12 @@ namespace ProduceRecovery
         private void cancel_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void unitSelect_EditValueChanged(object sender, EventArgs e)
+        {
+            int unitId = (int) unitSelect.EditValue;
+            GetCategories(unitId);
         }
     }
 }

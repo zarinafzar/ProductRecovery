@@ -40,17 +40,21 @@ namespace ProduceRecovery
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.unitName = new DevExpress.XtraEditors.TextEdit();
+            this.categorySelect = new DevExpress.XtraEditors.LookUpEdit();
+            this.unitSelect = new DevExpress.XtraEditors.LookUpEdit();
+            this.PompName = new DevExpress.XtraEditors.TextEdit();
             this.remark = new DevExpress.XtraEditors.MemoEdit();
+            this.InWorkDuration = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unitName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorySelect.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitSelect.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PompName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.remark.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InWorkDuration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -141,48 +145,94 @@ namespace ProduceRecovery
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.textEdit1);
-            this.groupControl1.Controls.Add(this.unitName);
+            this.groupControl1.Controls.Add(this.categorySelect);
+            this.groupControl1.Controls.Add(this.unitSelect);
+            this.groupControl1.Controls.Add(this.PompName);
             this.groupControl1.Controls.Add(this.remark);
+            this.groupControl1.Controls.Add(this.InWorkDuration);
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
             this.groupControl1.Size = new System.Drawing.Size(409, 363);
             this.groupControl1.TabIndex = 4;
             // 
-            // unitName
+            // categorySelect
             // 
-            this.unitName.Location = new System.Drawing.Point(20, 78);
-            this.unitName.MenuManager = this.barManager1;
-            this.unitName.Name = "unitName";
-            this.unitName.Properties.NullValuePrompt = "نام واحد";
-            this.unitName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.unitName.Size = new System.Drawing.Size(365, 40);
-            this.unitName.TabIndex = 0;
+            this.categorySelect.Location = new System.Drawing.Point(22, 68);
+            this.categorySelect.MenuManager = this.barManager1;
+            this.categorySelect.Name = "categorySelect";
+            this.categorySelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.categorySelect.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CatName", "ناحیه", 100, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.categorySelect.Properties.DropDownRows = 3;
+            this.categorySelect.Properties.NullText = "";
+            this.categorySelect.Properties.NullValuePrompt = "انتخاب ناحیه";
+            this.categorySelect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.categorySelect.Size = new System.Drawing.Size(365, 40);
+            this.categorySelect.TabIndex = 5;
+            // 
+            // unitSelect
+            // 
+            this.unitSelect.Location = new System.Drawing.Point(22, 22);
+            this.unitSelect.MenuManager = this.barManager1;
+            this.unitSelect.Name = "unitSelect";
+            this.unitSelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.unitSelect.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UnitName", "واحد", 100, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.unitSelect.Properties.DropDownRows = 3;
+            this.unitSelect.Properties.NullText = "";
+            this.unitSelect.Properties.NullValuePrompt = "انتخاب کارگاه";
+            this.unitSelect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.unitSelect.Size = new System.Drawing.Size(365, 40);
+            this.unitSelect.TabIndex = 4;
+            this.unitSelect.EditValueChanged += new System.EventHandler(this.unitSelect_EditValueChanged);
+            // 
+            // PompName
+            // 
+            this.PompName.Location = new System.Drawing.Point(22, 114);
+            this.PompName.MenuManager = this.barManager1;
+            this.PompName.Name = "PompName";
+            this.PompName.Properties.NullValuePrompt = "نام پمپ";
+            this.PompName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PompName.Size = new System.Drawing.Size(365, 40);
+            this.PompName.TabIndex = 1;
             // 
             // remark
             // 
-            this.remark.Location = new System.Drawing.Point(20, 231);
+            this.remark.Location = new System.Drawing.Point(22, 206);
             this.remark.MenuManager = this.barManager1;
             this.remark.Name = "remark";
             this.remark.Properties.NullValuePrompt = "توضیحات";
             this.remark.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.remark.Size = new System.Drawing.Size(365, 116);
-            this.remark.TabIndex = 1;
+            this.remark.Size = new System.Drawing.Size(365, 141);
+            this.remark.TabIndex = 3;
+            // 
+            // InWorkDuration
+            // 
+            this.InWorkDuration.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.InWorkDuration.Location = new System.Drawing.Point(22, 160);
+            this.InWorkDuration.MenuManager = this.barManager1;
+            this.InWorkDuration.Name = "InWorkDuration";
+            this.InWorkDuration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.InWorkDuration.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.InWorkDuration.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.InWorkDuration.Properties.NullValuePrompt = "دوره فعالیت";
+            this.InWorkDuration.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.InWorkDuration.Size = new System.Drawing.Size(365, 40);
+            this.InWorkDuration.TabIndex = 2;
             // 
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(22, 161);
-            this.textEdit1.MenuManager = this.barManager1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.NullValuePrompt = "نام واحد";
-            this.textEdit1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit1.Size = new System.Drawing.Size(365, 40);
-            this.textEdit1.TabIndex = 2;
             // 
             // AddPomp
             // 
@@ -205,10 +255,12 @@ namespace ProduceRecovery
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.unitName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorySelect.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitSelect.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PompName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.remark.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InWorkDuration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,9 +277,11 @@ namespace ProduceRecovery
         private DevExpress.XtraBars.BarButtonItem save;
         private DevExpress.XtraBars.BarButtonItem cancel;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.TextEdit unitName;
         private DevExpress.XtraEditors.MemoEdit remark;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit PompName;
+        private DevExpress.XtraEditors.SpinEdit InWorkDuration;
+        private DevExpress.XtraEditors.LookUpEdit categorySelect;
+        private DevExpress.XtraEditors.LookUpEdit unitSelect;
     }
 }

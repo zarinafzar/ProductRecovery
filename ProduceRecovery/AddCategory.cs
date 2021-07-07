@@ -50,6 +50,11 @@ namespace ProduceRecovery
 
         private void save_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (string.IsNullOrEmpty(unitSelect.Text))
+            {
+                dxErrorProvider1.SetError(unitSelect, "این فیلد نباید خالی باشد");
+                return;
+            }
             if (string.IsNullOrEmpty(categoryName.Text))
             {
                 dxErrorProvider1.SetError(categoryName, "این فیلد نباید خالی باشد");

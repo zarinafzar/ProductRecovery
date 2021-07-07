@@ -7,16 +7,17 @@ namespace Data.Contexts
 {
     public class Context : DbContext
     {
-        public Context()
-            : base("name=Context")
+        public Context(): base("name=Context")
         {
         }
+        
+
         public virtual DbSet<Units> Units { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Pomps> Pomps { get; set; }
         public virtual DbSet<PompsEvents> PompsEvents { get; set; }
         public virtual DbSet<RuntimeTasks> RuntimeTasks { get; set; }
-        
+
     }
-   
+
 }
