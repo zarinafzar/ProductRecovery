@@ -51,6 +51,8 @@ namespace ProduceRecovery
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
@@ -61,8 +63,6 @@ namespace ProduceRecovery
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
-            this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             this.SuspendLayout();
@@ -172,6 +172,7 @@ namespace ProduceRecovery
             this.addEventsOnPompBtn.Caption = "ثبت رویداد پمپ";
             this.addEventsOnPompBtn.Id = 7;
             this.addEventsOnPompBtn.Name = "addEventsOnPompBtn";
+            this.addEventsOnPompBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addEventsOnPompBtn_ItemClick);
             // 
             // outOfPompBtn
             // 
@@ -262,6 +263,19 @@ namespace ProduceRecovery
             this.barButtonItem16.Id = 22;
             this.barButtonItem16.Name = "barButtonItem16";
             // 
+            // skinDropDownButtonItem1
+            // 
+            this.skinDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.skinDropDownButtonItem1.Id = 24;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            // 
+            // skinPaletteDropDownButtonItem1
+            // 
+            this.skinPaletteDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.skinPaletteDropDownButtonItem1.Enabled = false;
+            this.skinPaletteDropDownButtonItem1.Id = 25;
+            this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -341,19 +355,6 @@ namespace ProduceRecovery
             // mvvmContext1
             // 
             this.mvvmContext1.ContainerControl = this;
-            // 
-            // skinDropDownButtonItem1
-            // 
-            this.skinDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.skinDropDownButtonItem1.Id = 24;
-            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
-            // 
-            // skinPaletteDropDownButtonItem1
-            // 
-            this.skinPaletteDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.skinPaletteDropDownButtonItem1.Enabled = false;
-            this.skinPaletteDropDownButtonItem1.Id = 25;
-            this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
             // 
             // MainView
             // 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ProduceRecovery.Actions;
 
 namespace ProduceRecovery
 {
@@ -36,6 +37,12 @@ namespace ProduceRecovery
         private void pompsBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             var frm = new PompsList();
+            frm.ShowDialog();
+        }
+
+        private void addEventsOnPompBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var frm = new StartPomp();
             frm.ShowDialog();
         }
     }

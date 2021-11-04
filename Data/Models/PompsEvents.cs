@@ -21,7 +21,7 @@ namespace Data.Models
         public DateTime StartDate { get; set; }
 
         [DefaultValue(null)]
-        public DateTime StopDate { get; set; }
+        public DateTime? StopDate { get; set; }
 
         public bool IsStart { get; set; }
 
