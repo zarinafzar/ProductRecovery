@@ -19,7 +19,6 @@ namespace Data.Models
         public string Remark { get; set; }
         public int InWorkDuration { get; set; }
         public bool IsDelete { get; set; }
-        public bool UnderMaintenance { get; set; }
 
         public int CatId { get; set; }
         [ForeignKey(nameof(CatId))] 
