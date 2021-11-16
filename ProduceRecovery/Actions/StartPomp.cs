@@ -1,5 +1,6 @@
 ﻿using Data.Contexts;
 using Data.Models;
+using DevExpress.Utils.VisualEffects;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -59,11 +60,17 @@ namespace ProduceRecovery.Actions
                 using (_db = new UnitOfWork())
                 {
                     var q = _db.PompsEventsRepo.GetById(this.Id);
+                    unitSelect.Enabled = false;
+                    categorySelect.Enabled = false;
+                    pompSelect.Enabled = false;
+
                     unitSelect.EditValue = q.Pomps.Categories.UnitId;
                     categorySelect.EditValue = q.Pomps.CatId;
                     pompSelect.EditValue = q.PompId;
                     date.EditValue = q.StartDate;
-                    remark.Text = q.Descriptions;
+                    descriptions.Text = q.Descriptions;
+                    offBtn.Enabled = true;
+                    onBtn.Enabled = true;
                     _db.Dispose();
                 }
             }
@@ -73,6 +80,7 @@ namespace ProduceRecovery.Actions
         {
             int unitId = (int)unitSelect.EditValue;
             GetCategories(unitId);
+           
         }
 
         private void cancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -103,14 +111,22 @@ namespace ProduceRecovery.Actions
 
                     if (events == null)
                     {
+                        nextEventsHint.Visible = false;
                         lastEvent.EditValue = "ندارد";
                         nextEvents.EditValue = "ندارد";
                         isStart.EditValue = false;
+                        gc.DataSource = null;
                     }
                     else
                     {
 
                         LoadGv(pompId);
+
+                        nextEventsHint.Visible = true;
+                        if (events.StopDate <= DateTime.Now)
+                            nextEventsHint.Properties.State = ValidationHintState.Invalid;
+                        else
+                            nextEventsHint.Properties.State = ValidationHintState.Valid;
 
                         lastEvent.EditValue = events.StartDate.ToString("yyyy/MM/dd");
                         nextEvents.EditValue = events.StopDate.ToString("yyyy/MM/dd");
@@ -221,6 +237,15 @@ namespace ProduceRecovery.Actions
 
         private void onBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(pompSelect.Text))
+            {
+                XtraMessageBox.Show(
+                   text: "پمپ را انتخاب کنید",
+                   caption: "Error",
+                   icon: MessageBoxIcon.Error,
+                   buttons: MessageBoxButtons.OK);
+                return;
+            }
             if (string.IsNullOrEmpty(date.Text))
                 date.EditValue = DateTime.Now;
 
@@ -268,6 +293,8 @@ namespace ProduceRecovery.Actions
                 LoadGv(pump);
                 Id = 0;
                 Clear();
+                MainView.form.GetData();
+                alertControl1.Show(this, "پاسخ", "روشن شد");
             }
             catch (Exception exception)
             {
@@ -279,6 +306,16 @@ namespace ProduceRecovery.Actions
 
         private void offBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(pompSelect.Text))
+            {
+                XtraMessageBox.Show(
+                   text: "پمپ را انتخاب کنید",
+                   caption: "Error",
+                   icon: MessageBoxIcon.Error,
+                   buttons: MessageBoxButtons.OK);
+                return;
+            }
+
             if (string.IsNullOrEmpty(date.Text))
                 date.EditValue = DateTime.Now;
 
@@ -326,6 +363,8 @@ namespace ProduceRecovery.Actions
                 LoadGv(pump);
                 Id = 0;
                 Clear();
+                MainView.form.GetData();
+                alertControl1.Show(this, "پاسخ", "خاموش شد");
             }
             catch (Exception exception)
             {

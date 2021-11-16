@@ -40,16 +40,17 @@ namespace ProduceRecovery
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.categorySelect = new DevExpress.XtraEditors.LookUpEdit();
             this.unitSelect = new DevExpress.XtraEditors.LookUpEdit();
             this.PompName = new DevExpress.XtraEditors.TextEdit();
             this.remark = new DevExpress.XtraEditors.MemoEdit();
             this.InWorkDuration = new DevExpress.XtraEditors.SpinEdit();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -149,6 +150,7 @@ namespace ProduceRecovery
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
@@ -163,6 +165,38 @@ namespace ProduceRecovery
             this.groupControl1.ShowCaption = false;
             this.groupControl1.Size = new System.Drawing.Size(409, 363);
             this.groupControl1.TabIndex = 4;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(313, 169);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(64, 21);
+            this.labelControl4.TabIndex = 9;
+            this.labelControl4.Text = "دوره فعالیت";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(313, 123);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(64, 21);
+            this.labelControl3.TabIndex = 8;
+            this.labelControl3.Text = "انتخاب پمپ";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(309, 77);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(68, 21);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "انتخاب ناحیه";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(309, 31);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(68, 21);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = "انتخاب کارگاه";
             // 
             // categorySelect
             // 
@@ -222,56 +256,42 @@ namespace ProduceRecovery
             // InWorkDuration
             // 
             this.InWorkDuration.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
-            this.InWorkDuration.Location = new System.Drawing.Point(22, 160);
+            this.InWorkDuration.Location = new System.Drawing.Point(57, 160);
             this.InWorkDuration.MenuManager = this.barManager1;
             this.InWorkDuration.Name = "InWorkDuration";
             this.InWorkDuration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.InWorkDuration.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.InWorkDuration.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.InWorkDuration.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.InWorkDuration.Properties.NullValuePrompt = "دوره فعالیت";
             this.InWorkDuration.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.InWorkDuration.Size = new System.Drawing.Size(266, 40);
+            this.InWorkDuration.Size = new System.Drawing.Size(231, 40);
             this.InWorkDuration.TabIndex = 2;
             // 
             // dxErrorProvider1
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
-            // labelControl1
+            // labelControl5
             // 
-            this.labelControl1.Location = new System.Drawing.Point(309, 31);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(68, 21);
-            this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "انتخاب کارگاه";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(309, 77);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(68, 21);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "انتخاب ناحیه";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(313, 123);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(64, 21);
-            this.labelControl3.TabIndex = 8;
-            this.labelControl3.Text = "انتخاب پمپ";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(313, 169);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(64, 21);
-            this.labelControl4.TabIndex = 9;
-            this.labelControl4.Text = "دوره فعالیت";
+            this.labelControl5.Location = new System.Drawing.Point(22, 169);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(15, 21);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "ماه";
             // 
             // AddPomp
             // 
@@ -327,5 +347,6 @@ namespace ProduceRecovery
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

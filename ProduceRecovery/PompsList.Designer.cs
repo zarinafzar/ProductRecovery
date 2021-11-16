@@ -51,13 +51,13 @@ namespace ProduceRecovery
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.identity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PompName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UnitNames = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Categories = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UnitId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.catId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
@@ -287,6 +287,18 @@ namespace ProduceRecovery
             this.PompName.VisibleIndex = 0;
             this.PompName.Width = 150;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "دوره فعالیت";
+            this.gridColumn1.FieldName = "InWorkDuration";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.AllowFocus = false;
+            this.gridColumn1.OptionsColumn.AllowSize = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 100;
+            // 
             // UnitNames
             // 
             this.UnitNames.Caption = "نام بخش";
@@ -335,18 +347,6 @@ namespace ProduceRecovery
             // 
             this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "دوره فعالیت";
-            this.gridColumn1.FieldName = "InWorkDuration";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.OptionsColumn.AllowFocus = false;
-            this.gridColumn1.OptionsColumn.AllowSize = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 100;
-            // 
             // searchControl1
             // 
             this.searchControl1.Client = this.gc;
@@ -373,6 +373,7 @@ namespace ProduceRecovery
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Image = global::ProduceRecovery.Properties.Resources.motor_pump;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "PompsList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

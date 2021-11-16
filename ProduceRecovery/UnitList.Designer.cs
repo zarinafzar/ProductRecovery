@@ -41,6 +41,8 @@ namespace ProduceRecovery
             this.xlsBtn = new DevExpress.XtraBars.BarButtonItem();
             this.printBtn = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.count = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -51,8 +53,6 @@ namespace ProduceRecovery
             this.unitName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraSaveFileDialog1 = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.count = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
@@ -181,6 +181,18 @@ namespace ProduceRecovery
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
             // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "تعداد:";
+            this.barStaticItem1.Id = 7;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // count
+            // 
+            this.count.Caption = "0";
+            this.count.Id = 8;
+            this.count.Name = "count";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -278,18 +290,6 @@ namespace ProduceRecovery
             // 
             this.xtraSaveFileDialog1.FileName = "xtraSaveFileDialog1";
             // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "تعداد:";
-            this.barStaticItem1.Id = 7;
-            this.barStaticItem1.Name = "barStaticItem1";
-            // 
-            // count
-            // 
-            this.count.Caption = "0";
-            this.count.Id = 8;
-            this.count.Name = "count";
-            // 
             // UnitList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -300,6 +300,7 @@ namespace ProduceRecovery
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Image = global::ProduceRecovery.Properties.Resources.motor_pump;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "UnitList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

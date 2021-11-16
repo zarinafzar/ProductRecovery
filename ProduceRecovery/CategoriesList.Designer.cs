@@ -320,6 +320,7 @@ namespace ProduceRecovery
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Image = global::ProduceRecovery.Properties.Resources.motor_pump;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "CategoriesList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

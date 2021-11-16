@@ -79,6 +79,8 @@ namespace ProduceRecovery.Actions
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.adornerUIManager1 = new DevExpress.Utils.VisualEffects.AdornerUIManager(this.components);
+            this.nextEventsHint = new DevExpress.Utils.VisualEffects.ValidationHint();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pompSelect.Properties)).BeginInit();
@@ -104,6 +106,7 @@ namespace ProduceRecovery.Actions
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adornerUIManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl5
@@ -116,7 +119,7 @@ namespace ProduceRecovery.Actions
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(313, 136);
+            this.labelControl3.Location = new System.Drawing.Point(313, 142);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(64, 21);
             this.labelControl3.TabIndex = 31;
@@ -124,7 +127,7 @@ namespace ProduceRecovery.Actions
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(309, 90);
+            this.labelControl2.Location = new System.Drawing.Point(309, 96);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(68, 21);
             this.labelControl2.TabIndex = 30;
@@ -132,7 +135,7 @@ namespace ProduceRecovery.Actions
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(309, 44);
+            this.labelControl4.Location = new System.Drawing.Point(309, 50);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(68, 21);
             this.labelControl4.TabIndex = 29;
@@ -168,7 +171,7 @@ namespace ProduceRecovery.Actions
             // 
             // pompSelect
             // 
-            this.pompSelect.Location = new System.Drawing.Point(22, 127);
+            this.pompSelect.Location = new System.Drawing.Point(22, 133);
             this.pompSelect.Name = "pompSelect";
             this.pompSelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -184,7 +187,7 @@ namespace ProduceRecovery.Actions
             // 
             // unitSelect
             // 
-            this.unitSelect.Location = new System.Drawing.Point(22, 35);
+            this.unitSelect.Location = new System.Drawing.Point(22, 41);
             this.unitSelect.Name = "unitSelect";
             this.unitSelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -201,7 +204,7 @@ namespace ProduceRecovery.Actions
             // 
             // categorySelect
             // 
-            this.categorySelect.Location = new System.Drawing.Point(22, 81);
+            this.categorySelect.Location = new System.Drawing.Point(22, 87);
             this.categorySelect.Name = "categorySelect";
             this.categorySelect.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -263,7 +266,7 @@ namespace ProduceRecovery.Actions
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(287, 197);
+            this.labelControl9.Location = new System.Drawing.Point(287, 187);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(90, 21);
             this.labelControl9.TabIndex = 14;
@@ -285,7 +288,7 @@ namespace ProduceRecovery.Actions
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(283, 155);
+            this.labelControl8.Location = new System.Drawing.Point(283, 145);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(94, 21);
             this.labelControl8.TabIndex = 12;
@@ -307,7 +310,7 @@ namespace ProduceRecovery.Actions
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(290, 113);
+            this.labelControl7.Location = new System.Drawing.Point(290, 104);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(87, 21);
             this.labelControl7.TabIndex = 10;
@@ -587,7 +590,7 @@ namespace ProduceRecovery.Actions
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 537);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 547);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(863, 36);
             // 
@@ -597,7 +600,7 @@ namespace ProduceRecovery.Actions
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 537);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 547);
             // 
             // barDockControlRight
             // 
@@ -605,17 +608,38 @@ namespace ProduceRecovery.Actions
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(863, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 537);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 547);
             // 
             // alertControl1
             // 
             this.alertControl1.FormLocation = DevExpress.XtraBars.Alerter.AlertFormLocation.TopLeft;
             // 
+            // adornerUIManager1
+            // 
+            this.adornerUIManager1.Elements.Add(this.nextEventsHint);
+            this.adornerUIManager1.Owner = this;
+            // 
+            // nextEventsHint
+            // 
+            this.nextEventsHint.Properties.InvalidState.HintLocation = DevExpress.Utils.VisualEffects.ValidationHintLocation.Right;
+            this.nextEventsHint.Properties.InvalidState.ShowBackgroundMode = DevExpress.Utils.VisualEffects.ValidationHintBackgroundMode.Target;
+            this.nextEventsHint.Properties.InvalidState.ShowBorder = DevExpress.Utils.DefaultBoolean.True;
+            this.nextEventsHint.Properties.InvalidState.ShowHint = DevExpress.Utils.DefaultBoolean.True;
+            this.nextEventsHint.Properties.InvalidState.Text = "عدم تأیید";
+            this.nextEventsHint.Properties.State = DevExpress.Utils.VisualEffects.ValidationHintState.Invalid;
+            this.nextEventsHint.Properties.ValidState.HintLocation = DevExpress.Utils.VisualEffects.ValidationHintLocation.Right;
+            this.nextEventsHint.Properties.ValidState.ShowBackgroundMode = DevExpress.Utils.VisualEffects.ValidationHintBackgroundMode.Target;
+            this.nextEventsHint.Properties.ValidState.ShowBorder = DevExpress.Utils.DefaultBoolean.True;
+            this.nextEventsHint.Properties.ValidState.ShowHint = DevExpress.Utils.DefaultBoolean.True;
+            this.nextEventsHint.Properties.ValidState.Text = "تأیید";
+            this.nextEventsHint.TargetElement = this.nextEvents;
+            this.nextEventsHint.Visible = false;
+            // 
             // StartPomp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 573);
+            this.ClientSize = new System.Drawing.Size(863, 583);
             this.Controls.Add(this.evgrp);
             this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.pumpEvGrp);
@@ -660,6 +684,7 @@ namespace ProduceRecovery.Actions
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adornerUIManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -710,5 +735,7 @@ namespace ProduceRecovery.Actions
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.Utils.VisualEffects.AdornerUIManager adornerUIManager1;
+        private DevExpress.Utils.VisualEffects.ValidationHint nextEventsHint;
     }
 }
