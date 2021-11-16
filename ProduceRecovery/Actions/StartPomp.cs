@@ -116,6 +116,8 @@ namespace ProduceRecovery.Actions
                         nextEvents.EditValue = "ندارد";
                         isStart.EditValue = false;
                         gc.DataSource = null;
+                        offBtn.Enabled = true;
+                        onBtn.Enabled = true;
                     }
                     else
                     {
@@ -141,6 +143,7 @@ namespace ProduceRecovery.Actions
                             offBtn.Enabled = false;
                             onBtn.Enabled = true;
                         }
+                        
 
                     }
 

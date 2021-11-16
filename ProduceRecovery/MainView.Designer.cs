@@ -68,6 +68,7 @@ namespace ProduceRecovery
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.pompId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcOnAction = new DevExpress.XtraGrid.GridControl();
             this.gvOnAction = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,6 +80,7 @@ namespace ProduceRecovery
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcHistory = new DevExpress.XtraGrid.GridControl();
             this.gvOnHistory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.DescriptionCol = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -402,13 +404,15 @@ namespace ProduceRecovery
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.pompId});
             this.gvOnwork.GridControl = this.gcOnwork;
             this.gvOnwork.Name = "gvOnwork";
             this.gvOnwork.OptionsView.EnableAppearanceEvenRow = true;
             this.gvOnwork.OptionsView.RowAutoHeight = true;
             this.gvOnwork.OptionsView.ShowGroupPanel = false;
             this.gvOnwork.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gvOnwork.Click += new System.EventHandler(this.gvOnwork_Click);
             // 
             // gridColumn2
             // 
@@ -506,6 +510,12 @@ namespace ProduceRecovery
             this.repositoryItemCheckEdit2.ImageOptions.SvgImageUnchecked = global::ProduceRecovery.Properties.Resources.shutdown_svgrepo_com;
             this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
             // 
+            // pompId
+            // 
+            this.pompId.Caption = "pompId";
+            this.pompId.FieldName = "PompId";
+            this.pompId.Name = "pompId";
+            // 
             // gcOnAction
             // 
             this.gcOnAction.Location = new System.Drawing.Point(24, 94);
@@ -529,13 +539,15 @@ namespace ProduceRecovery
             this.gridColumn11,
             this.gridColumn12,
             this.gridColumn13,
-            this.gridColumn14});
+            this.gridColumn14,
+            this.gridColumn18});
             this.gvOnAction.GridControl = this.gcOnAction;
             this.gvOnAction.Name = "gvOnAction";
             this.gvOnAction.OptionsView.EnableAppearanceEvenRow = true;
             this.gvOnAction.OptionsView.RowAutoHeight = true;
             this.gvOnAction.OptionsView.ShowGroupPanel = false;
             this.gvOnAction.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+            this.gvOnAction.Click += new System.EventHandler(this.gvOnAction_Click);
             // 
             // gridColumn9
             // 
@@ -632,6 +644,12 @@ namespace ProduceRecovery
             this.repositoryItemCheckEdit3.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.repositoryItemCheckEdit3.ImageOptions.SvgImageUnchecked = global::ProduceRecovery.Properties.Resources.shutdown_svgrepo_com;
             this.repositoryItemCheckEdit3.Name = "repositoryItemCheckEdit3";
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "pompId";
+            this.gridColumn18.FieldName = "PompId";
+            this.gridColumn18.Name = "gridColumn18";
             // 
             // gcHistory
             // 
@@ -1036,6 +1054,8 @@ namespace ProduceRecovery
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraBars.BarButtonItem refresh;
+        private DevExpress.XtraGrid.Columns.GridColumn pompId;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }
 

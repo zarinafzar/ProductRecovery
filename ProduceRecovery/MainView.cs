@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Data.Contexts;
+using Data.Models;
 using ProduceRecovery.Actions;
 
 namespace ProduceRecovery
@@ -29,7 +30,16 @@ namespace ProduceRecovery
         }
         private void MainView_Shown(object sender, EventArgs e)
         {
-            GetData();
+            List<Units> un = null;
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(SplashScreen1));
+            using (_db = new UnitOfWork())
+            {
+                un = _db.UnitsRepo.Get().ToList();
+            }
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+
+            if (un != null)
+                GetData();
         }
 
 
@@ -75,7 +85,7 @@ namespace ProduceRecovery
             pumpId = 0;
             try
             {
-                pumpId = Convert.ToInt32(gvOnwork.GetRowCellDisplayText(gvOnwork.FocusedRowHandle, gvOnwork.Columns["pompId"]));
+                pumpId = Convert.ToInt32(gvOnwork.GetRowCellDisplayText(gvOnwork.FocusedRowHandle, gvOnwork.Columns["PompId"]));
             }
             catch
             {
@@ -88,7 +98,7 @@ namespace ProduceRecovery
             pumpId = 0;
             try
             {
-                pumpId = Convert.ToInt32(gvOnAction.GetRowCellDisplayText(gvOnAction.FocusedRowHandle, gvOnAction.Columns["pompId"]));
+                pumpId = Convert.ToInt32(gvOnAction.GetRowCellDisplayText(gvOnAction.FocusedRowHandle, gvOnAction.Columns["PompId"]));
             }
             catch
             {
@@ -122,35 +132,35 @@ namespace ProduceRecovery
 
         private void gvOnwork_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            SelectGridOnWork();
-            if (pumpId == 0)
-                return;
+            //SelectGridOnWork();
+            ////if (pumpId == 0)
+            ////    return;
 
-            using (_db = new UnitOfWork())
-            {
-                var gridv = _db.PompsEventsRepo
-                            .Include(x => x.Pomps)
-                            .Where(x => x.PompId == pumpId)
-                            .OrderByDescending(x => x.StartDate);
-                gcHistory.DataSource = gridv;
-            }
+            //using (_db = new UnitOfWork())
+            //{
+            //    var gridv = _db.PompsEventsRepo
+            //                .Include(x => x.Pomps)
+            //                .Where(x => x.PompId == pumpId)
+            //                .OrderByDescending(x => x.StartDate);
+            //    gcHistory.DataSource = gridv;
+            //}
 
         }
 
         private void gvOnAction_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            SelectGridOnAction();
-            if (pumpId == 0)
-                return;
+            //SelectGridOnAction();
+            ////if (pumpId == 0)
+            ////    return;
 
-            using (_db = new UnitOfWork())
-            {
-                var gridv = _db.PompsEventsRepo
-                            .Include(x => x.Pomps)
-                            .Where(x => x.PompId == pumpId)
-                            .OrderByDescending(x => x.StartDate);
-                gcHistory.DataSource = gridv;
-            }
+            //using (_db = new UnitOfWork())
+            //{
+            //    var gridv = _db.PompsEventsRepo
+            //                .Include(x => x.Pomps)
+            //                .Where(x => x.PompId == pumpId)
+            //                .OrderByDescending(x => x.StartDate);
+            //    gcHistory.DataSource = gridv;
+            //}
         }
 
         private void gvOnHistory_DoubleClick(object sender, EventArgs e)
@@ -167,6 +177,38 @@ namespace ProduceRecovery
         private void refresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             GetData();
+        }
+
+        private void gvOnAction_Click(object sender, EventArgs e)
+        {
+            SelectGridOnAction();
+            if (pumpId == 0)
+                return;
+
+            using (_db = new UnitOfWork())
+            {
+                var gridv = _db.PompsEventsRepo
+                            .Include(x => x.Pomps)
+                            .Where(x => x.PompId == pumpId)
+                            .OrderByDescending(x => x.StartDate);
+                gcHistory.DataSource = gridv;
+            }
+        }
+
+        private void gvOnwork_Click(object sender, EventArgs e)
+        {
+            SelectGridOnWork();
+            if (pumpId == 0)
+                return;
+
+            using (_db = new UnitOfWork())
+            {
+                var gridv = _db.PompsEventsRepo
+                            .Include(x => x.Pomps)
+                            .Where(x => x.PompId == pumpId)
+                            .OrderByDescending(x => x.StartDate);
+                gcHistory.DataSource = gridv;
+            }
         }
     }
 }
