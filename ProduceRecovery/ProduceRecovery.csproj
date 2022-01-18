@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProduceRecovery</RootNamespace>
     <AssemblyName>ProduceRecovery</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -61,21 +61,17 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="FarsiLibrary.Localization, Version=21.1.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master\binaries\FarsiLibrary.Localization.dll</HintPath>
+    <Reference Include="FarsiLibrary.Localization">
+      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master - 4.5.2\binaries\FarsiLibrary.Localization.dll</HintPath>
     </Reference>
-    <Reference Include="FarsiLibrary.Utils, Version=21.1.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master\binaries\FarsiLibrary.Utils.dll</HintPath>
+    <Reference Include="FarsiLibrary.Utils">
+      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master - 4.5.2\binaries\FarsiLibrary.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="FarsiLibrary.Win, Version=21.1.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master\binaries\FarsiLibrary.Win.dll</HintPath>
+    <Reference Include="FarsiLibrary.Win">
+      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master - 4.5.2\binaries\FarsiLibrary.Win.dll</HintPath>
     </Reference>
-    <Reference Include="FarsiLibrary.Win.DevExpress.21.1, Version=21.1.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master\binaries\FarsiLibrary.Win.DevExpress.21.1.dll</HintPath>
+    <Reference Include="FarsiLibrary.Win.DevExpress.21.1">
+      <HintPath>..\..\FarsiLibrary-master\FarsiLibrary-master - 4.5.2\binaries\FarsiLibrary.Win.DevExpress.21.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
