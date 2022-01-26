@@ -43,13 +43,13 @@ namespace ProduceRecovery
         }
         private void UnitList_Load(object sender, EventArgs e)
         {
-            GetList();
+            
         }
         public void GetList()
         {
             using (_db = new UnitOfWork())
             {
-                gc.DataSource = _db.PompsRepo.Include(x => x.Categories)/*.Include(c=>c.Categories.Units)*/.Where(c=>!c.IsDelete);
+                gc.DataSource = _db.PompsRepo.Include(x => x.Categories)/*.Include(c=>c.Categories.Units)*/.Where(c => !c.IsDelete);
             }
 
             count.Caption = gv.RowCount.ToString();
@@ -158,6 +158,11 @@ namespace ProduceRecovery
         private void printBtn_ItemClick(object sender, ItemClickEventArgs e)
         {
             gv.PrintDialog();
+        }
+
+        private void PompsList_Shown(object sender, EventArgs e)
+        {
+            GetList();
         }
     }
 }

@@ -111,6 +111,7 @@
     <Compile Include="AddUnit.Designer.cs">
       <DependentUpon>AddUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Plugins.cs" />
     <Compile Include="PompsList.cs">
       <SubType>Form</SubType>
     </Compile>

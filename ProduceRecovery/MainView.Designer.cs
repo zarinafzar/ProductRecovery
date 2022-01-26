@@ -38,6 +38,8 @@ namespace ProduceRecovery
             this.pompsBtn = new DevExpress.XtraBars.BarButtonItem();
             this.addEventsOnPompBtn = new DevExpress.XtraBars.BarButtonItem();
             this.refresh = new DevExpress.XtraBars.BarButtonItem();
+            this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
@@ -164,8 +166,10 @@ namespace ProduceRecovery
             this.barButtonItem14,
             this.barButtonItem15,
             this.barButtonItem16,
-            this.refresh});
-            this.barManager1.MaxItemId = 27;
+            this.refresh,
+            this.skinDropDownButtonItem1,
+            this.skinPaletteDropDownButtonItem1});
+            this.barManager1.MaxItemId = 29;
             this.barManager1.RightToLeft = DevExpress.Utils.DefaultBoolean.True;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -180,7 +184,9 @@ namespace ProduceRecovery
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.categoriesBtn, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.pompsBtn, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.addEventsOnPompBtn, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.refresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.refresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.skinPaletteDropDownButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.skinDropDownButtonItem1)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.OptionsBar.DrawDragBorder = false;
@@ -231,6 +237,19 @@ namespace ProduceRecovery
             this.refresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("refresh.ImageOptions.LargeImage")));
             this.refresh.Name = "refresh";
             this.refresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.refresh_ItemClick);
+            // 
+            // skinPaletteDropDownButtonItem1
+            // 
+            this.skinPaletteDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.skinPaletteDropDownButtonItem1.Enabled = false;
+            this.skinPaletteDropDownButtonItem1.Id = 28;
+            this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            // 
+            // skinDropDownButtonItem1
+            // 
+            this.skinDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.skinDropDownButtonItem1.Id = 27;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
             // 
             // bar3
             // 
@@ -944,6 +963,7 @@ namespace ProduceRecovery
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مدیریت پمپها";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainView_FormClosing);
             this.Load += new System.EventHandler(this.MainView_Load);
             this.Shown += new System.EventHandler(this.MainView_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -1056,6 +1076,8 @@ namespace ProduceRecovery
         private DevExpress.XtraBars.BarButtonItem refresh;
         private DevExpress.XtraGrid.Columns.GridColumn pompId;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+        private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
     }
 }
 

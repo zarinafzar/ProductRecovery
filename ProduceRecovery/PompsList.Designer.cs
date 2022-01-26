@@ -213,7 +213,7 @@ namespace ProduceRecovery
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 413);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 525);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.barDockControlBottom.Size = new System.Drawing.Size(813, 36);
@@ -225,7 +225,7 @@ namespace ProduceRecovery
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 382);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 494);
             // 
             // barDockControlRight
             // 
@@ -234,7 +234,7 @@ namespace ProduceRecovery
             this.barDockControlRight.Location = new System.Drawing.Point(813, 31);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 382);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 494);
             // 
             // gc
             // 
@@ -244,7 +244,7 @@ namespace ProduceRecovery
             this.gc.MenuManager = this.barManager1;
             this.gc.Name = "gc";
             this.gc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gc.Size = new System.Drawing.Size(813, 342);
+            this.gc.Size = new System.Drawing.Size(813, 454);
             this.gc.TabIndex = 4;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -366,7 +366,7 @@ namespace ProduceRecovery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 449);
+            this.ClientSize = new System.Drawing.Size(813, 561);
             this.Controls.Add(this.gc);
             this.Controls.Add(this.searchControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -379,6 +379,7 @@ namespace ProduceRecovery
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست پمپها";
             this.Load += new System.EventHandler(this.UnitList_Load);
+            this.Shown += new System.EventHandler(this.PompsList_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();

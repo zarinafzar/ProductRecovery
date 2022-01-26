@@ -8,7 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using Data.Contexts;
 using Data.Models;
+using DevExpress.LookAndFeel;
 using ProduceRecovery.Actions;
+using ProduceRecovery.Models;
 
 namespace ProduceRecovery
 {
@@ -21,6 +23,7 @@ namespace ProduceRecovery
         public MainView()
         {
             InitializeComponent();
+            Plugins.CurrentSkin();
             form = this;
         }
 
@@ -209,6 +212,15 @@ namespace ProduceRecovery
                             .OrderByDescending(x => x.StartDate);
                 gcHistory.DataSource = gridv;
             }
+        }
+
+        private void MainView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //ذریافت نام پوسته و پالت و ارسال به کلاس برای تغییر در تنظیمات
+            var skinName = UserLookAndFeel.Default.ActiveSkinName;
+            var pallete = UserLookAndFeel.Default.ActiveSvgPaletteName;
+            Plugins.ChangeSkin(skinName, pallete);
+            Application.Exit();
         }
     }
 }

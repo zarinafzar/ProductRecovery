@@ -22,5 +22,29 @@ namespace ProduceRecovery.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Office 2007 Blue")]
+        public string skin {
+            get {
+                return ((string)(this["skin"]));
+            }
+            set {
+                this["skin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string pallete {
+            get {
+                return ((string)(this["pallete"]));
+            }
+            set {
+                this["pallete"] = value;
+            }
+        }
     }
 }
